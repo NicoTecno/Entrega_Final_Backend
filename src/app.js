@@ -52,9 +52,20 @@ import adminConsoleRouter from './routes/admin.console.js';
 import config from './tools/config.js';
 import mailingRoutes from './routes/mailing.js';
 
+//
+import helmet from 'helmet';
+
 const app = express();
 //const port = 8080;
 const port = process.env.PORT || 8080;
+
+//
+app.use(helmet.contentSecurityPolicy({
+	directives: {
+	   defaultSrc: ["'self'"],
+	   imgSrc: ["'self'", "https://entregafinalbackend-production-6d40.up.railway.app"]
+	}
+   }));
 
 const corsOptions = {
 	origin: 'http://localhost:8080',  // Reemplaza con la IP y puerto de tu servidor
