@@ -64,8 +64,9 @@ app.use(helmet.contentSecurityPolicy({
 	directives: {
 	   defaultSrc: ["'self'"],
 	   imgSrc: ["'self'", "https://entregafinalbackend-production-6d40.up.railway.app"]
-	}
-   }));
+	},
+	reportOnly: true
+}));
 
 const corsOptions = {
 	origin: 'http://localhost:8080',  // Reemplaza con la IP y puerto de tu servidor
